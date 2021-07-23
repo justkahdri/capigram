@@ -17,7 +17,7 @@ describe("Home Page Suite", () => {
   });
 
   it("renders navigation", () => {
-    ["Home", "Account", "Notifications"].forEach((label) => {
+    ["Home", "Account", "Activity"].forEach((label) => {
       expect(screen.getByLabelText(label)).toBeVisible();
     });
   });

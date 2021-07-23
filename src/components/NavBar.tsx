@@ -7,7 +7,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 const NavBar = (props: FlexProps) => {
   const buttons = [
     { icon: AiFillHome, name: "Home", route: "/" },
-    { icon: AiOutlineHeart, name: "Notifications", route: "/notifications" },
+    { icon: AiOutlineHeart, name: "Activity", route: "/activity" },
     { icon: BsFillPersonFill, name: "Account", route: "/profile" },
   ];
   return (

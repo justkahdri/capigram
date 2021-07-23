@@ -15,6 +15,17 @@ const theme = extendTheme({
     },
   },
   components: {
+    Heading: {
+      variants: {
+        brandy: {
+          fontSize: "lg",
+          background:
+            "-webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+          "-webkit-background-clip": "text",
+          "-webkit-text-fill-color": "transparent",
+        },
+      },
+    },
     // IconButton: {
     //   variants: {
     //     "navbar-icon": ({ colorScheme = "brand" }) => ({
