@@ -13,6 +13,7 @@ const NavBar = (props: FlexProps) => {
   return (
     <Flex
       justifyContent="space-evenly"
+      background="white"
       {...props}
       width="100%"
       py={3}

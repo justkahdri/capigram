@@ -2,10 +2,10 @@ import { Image, SkeletonCircle, Center, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 
-const StoryBubble = ({ user, route }: StoryProps) => {
+const StoryBubble = ({ cover, emoji, name, path }: StoryProps) => {
   const size = "3.5rem";
   return (
-    <Link href={route}>
+    <Link href={path}>
       <Center as="a" flexDirection="column" minW="80px">
         <Center
           bgGradient="linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)"
@@ -13,10 +13,10 @@ const StoryBubble = ({ user, route }: StoryProps) => {
           boxSize={size}
         >
           <Image
-            src={user.avatarUrl}
+            src={cover}
             boxSize="92%"
             p={"2px"}
-            alt={`${user.nickname}'s stories`}
+            alt={`${name}'s stories`}
             background="white"
             borderRadius="full"
             objectFit="cover"
@@ -24,7 +24,7 @@ const StoryBubble = ({ user, route }: StoryProps) => {
           />
         </Center>
         <Text color="blackAlpha.800" fontSize="xs">
-          {user.name.length > 12 ? `${user.name.slice(0, 10)}...` : user.name}
+          {emoji.length > 12 ? `${emoji.slice(0, 10)}...` : emoji}
         </Text>
       </Center>
     </Link>

@@ -1,15 +1,14 @@
-import { Stack } from "@chakra-ui/react";
+import { Stack, StackDivider } from "@chakra-ui/react";
 import React from "react";
 import Header from "./Header";
 import NavBar from "./NavBar";
-import StoryBubble from "./StoryBubble";
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <Stack alignItems="center" spacing={3}>
+    <Stack alignItems="center" spacing={2} divider={<StackDivider />}>
       <Header />
       {children}
-      <NavBar bottom={0} position="fixed" />
+      <NavBar bottom={0} position="sticky" />
     </Stack>
   );
 };

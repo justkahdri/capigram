@@ -6,7 +6,7 @@ const Header = () => {
   // const variant = useBreakpointValue({ base: "outline", md: "solid" })
 
   return (
-    <Stack width="100%" py={2} px={5} borderBottom="solid 1px rgba(0,0,0,0.1)">
+    <Stack width="100%" pt={2} px={5}>
       <Heading as="h1" variant="brandy">
         CAPIGRAM
       </Heading>
