@@ -11,14 +11,7 @@ const NavBar = (props: FlexProps) => {
     { icon: BsFillPersonFill, name: "Account", route: "/profile" },
   ];
   return (
-    <Flex
-      justifyContent="space-evenly"
-      background="white"
-      {...props}
-      width="100%"
-      py={3}
-      borderTop="solid 1px rgba(0,0,0,0.1)"
-    >
+    <Flex background="white" {...props} py={3}>
       {buttons.map((btn) => (
         <Link href={btn.route} key={btn.name}>
           <a>

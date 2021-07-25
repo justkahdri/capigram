@@ -15,7 +15,12 @@ const ListOfPosts = () => {
   }, [getData]);
 
   return (
-    <Stack flexDir="column" spacing={3}>
+    <Stack
+      flexDir="column"
+      spacing={3}
+      pt={2}
+      borderTop="solid 1px rgba(0,0,0,0.1)"
+    >
       {posts.map((photo) => (
         <Post {...photo} key={photo.id} />
       ))}
