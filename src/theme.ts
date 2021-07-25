@@ -3,6 +3,17 @@ import { extendTheme } from "@chakra-ui/react";
 
 // 2. Call `extendTheme` and pass your custom values
 const theme = extendTheme({
+  styles: {
+    global: {
+      // styles for the `body`
+      html: {
+        scrollBehavior: "smooth",
+      },
+      body: {
+        color: "blackAlpha.800",
+      },
+    },
+  },
   fonts: {
     heading: "Satisfy",
     body: "Open Sans",
