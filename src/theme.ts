@@ -5,12 +5,8 @@ import { extendTheme } from "@chakra-ui/react";
 const theme = extendTheme({
   styles: {
     global: {
-      // styles for the `body`
       html: {
         scrollBehavior: "smooth",
-      },
-      body: {
-        color: "blackAlpha.800",
       },
     },
   },
@@ -37,15 +33,6 @@ const theme = extendTheme({
         },
       },
     },
-    // IconButton: {
-    //   variants: {
-    //     "navbar-icon": ({ colorScheme = "brand" }) => ({
-    //       color: `${colorScheme}.500`,
-    //       bgColor: "red",
-    //       boxSize: "2rem",
-    //     }),
-    //   },
-    // },
   },
 });
 

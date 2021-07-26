@@ -3,7 +3,7 @@ import { Stack } from "@chakra-ui/react";
 
 import getData from "../utils/getData";
 
-import Post from "../components/Post";
+import Post from "@components/Post";
 
 import data from "../../database/db.json";
 
