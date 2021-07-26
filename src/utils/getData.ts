@@ -1,7 +1,7 @@
-const getData = async (url: string, callback: (data: any) => void) => {
+const getData = async (url: string) => {
   const response = await fetch(url);
   const data = await response.json();
-  callback(data);
+  return data;
 };
 
 export default getData;

@@ -2,19 +2,19 @@ import { Image, SkeletonCircle, Center, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 
-const StoryBubble = ({ cover, emoji, name, path }: StoryProps) => {
-  const size = "3.5rem";
+const StoryBubble = ({ cover, emoji, name, path, size }: StoryProps) => {
   return (
     <Link href={path}>
       <Center as="a" flexDirection="column" minW="80px">
         <Center
+          as="figure"
           bgGradient="linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)"
           borderRadius="full"
           boxSize={size}
         >
           <Image
             src={cover}
-            boxSize="92%"
+            boxSize="93%"
             p={"2px"}
             alt={`${name}'s stories`}
             background="white"
