@@ -5,6 +5,7 @@ declare global {
     emoji: string;
     name: string;
     path: string;
+    size: string;
   }
 
   interface PostProps {
