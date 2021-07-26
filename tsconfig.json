@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "baseUrl": "./",
+    "paths": {
+      "@database": ["database/db.json"],
+      "@components/*": ["src/components/*"],
+      "@containers/*": ["src/containers/*"],
+      "@hooks/*": ["src/hooks/*"]
+    },
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": false,
