@@ -1,29 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { Stack } from "@chakra-ui/react";
-
-import getData from "../utils/getData";
+import React from "react";
+import { Heading, Skeleton, Stack } from "@chakra-ui/react";
+import { useQuery } from "@apollo/client";
 
 import Post from "@components/Post";
+import { getPhotos } from "../utils/queries";
 
-import data from "../../database/db.json";
+interface ListOfPhotosData {
+  photos: PostProps[];
+}
 
-const ListOfPosts = () => {
-  const [posts, setPosts] = useState<PostProps[]>([]);
+interface ListOfPhotosVars {
+  categoryId?: number;
+}
 
-  useEffect(() => {
-    setPosts(data.photos);
-  }, [getData]);
+const ListOfPosts = ({ categoryId }: ListOfPhotosVars) => {
+  const { loading, error, data } = useQuery<ListOfPhotosData, ListOfPhotosVars>(
+    getPhotos,
+    { variables: { categoryId } }
+  );
+
+  if (error) {
+    return <Heading>An error ocurred... 🤯</Heading>;
+  }
 
   return (
     <Stack
       flexDir="column"
       spacing={3}
       pt={2}
+      width="100%"
       borderTop="solid 1px rgba(0,0,0,0.1)"
     >
-      {posts.map((photo) => (
-        <Post {...photo} key={photo.id} />
-      ))}
+      {loading || !data
+        ? Array(3)
+            .fill("")
+            .map((i, idx) => <Skeleton key={idx} width="100%" height="500px" />)
+        : data.photos.map((photo) => <Post {...photo} key={photo.id} />)}
     </Stack>
   );
 };
