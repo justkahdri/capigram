@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useToast } from "@chakra-ui/react";
 
-function useLocalStorage<Type>(key: string, initialValue: Type) {
+type TReturn<Type> = [Type, (new_value: Type) => void];
+
+function useLocalStorage<Type>(key: string, initialValue: Type): TReturn<Type> {
   const [storedValue, setStoredValue] = useState(() => {
     try {
       const value = window.localStorage.getItem(key);
@@ -33,7 +35,7 @@ function useLocalStorage<Type>(key: string, initialValue: Type) {
     }
   };
 
-  return [storedValue, setLocalStorage] as [Type, (new_value: Type) => void];
+  return [storedValue, setLocalStorage];
 }
 
 export default useLocalStorage;

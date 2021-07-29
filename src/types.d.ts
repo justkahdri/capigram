@@ -14,6 +14,12 @@ declare global {
     src: string;
   }
 
+  interface FavButtonProps {
+    photoId: number;
+    photoKey: string;
+    likes: number;
+  }
+
   // USE CASES
   interface TCategory extends StoryProps {
     id: number;
