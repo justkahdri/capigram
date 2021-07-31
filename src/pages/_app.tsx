@@ -4,6 +4,7 @@ import "@fontsource/open-sans";
 import type { AppProps } from "next/app";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { ChakraProvider } from "@chakra-ui/react";
+import { ContextProvider } from "@utils/Context";
 
 import custom_theme from "../theme";
 
@@ -16,7 +17,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={custom_theme}>
       <ApolloProvider client={client}>
-        <Component {...pageProps} />
+        <ContextProvider>
+          <Component {...pageProps} />
+        </ContextProvider>
       </ApolloProvider>
     </ChakraProvider>
   );

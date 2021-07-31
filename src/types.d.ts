@@ -20,6 +20,12 @@ declare global {
     likes: number;
   }
 
+  // CONTEXT
+  interface ContextProps {
+    isAuth: boolean;
+    activateAuth: () => void;
+  }
+
   // USE CASES
   interface TCategory extends StoryProps {
     id: number;

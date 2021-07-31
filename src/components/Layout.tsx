@@ -11,7 +11,7 @@ const Layout: React.FC = ({ children }) => {
 
   if (variant === "inline")
     return (
-      <Stack as="main" alignItems="center" spacing={3}>
+      <Stack as="main" alignItems="center" spacing={3} minH="100vh">
         <Header>
           <NavBar width="20%" justifyContent="space-between" />
         </Header>
@@ -20,7 +20,7 @@ const Layout: React.FC = ({ children }) => {
     );
   else
     return (
-      <Stack as="main" alignItems="center" spacing={3}>
+      <Stack as="main" alignItems="center" spacing={3} minH="100vh">
         <Header />
         {children}
         <NavBar

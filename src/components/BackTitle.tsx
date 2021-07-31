@@ -1,14 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import Link from "next/link";
-import { Icon, Stack, Text } from "@chakra-ui/react";
+import { Heading, Icon, Stack } from "@chakra-ui/react";
 
 import { BsArrowLeft } from "react-icons/bs";
 
-interface BackTitleProps {
-  title: string;
-}
-
-const BackTitle = ({ title }: BackTitleProps) => {
+const BackTitle: FC = ({ children }) => {
   return (
     <Stack
       direction="row"
@@ -24,9 +20,9 @@ const BackTitle = ({ title }: BackTitleProps) => {
         </a>
       </Link>
 
-      <Text as="h1" fontSize="lg">
-        {title}
-      </Text>
+      <Heading as="h1" fontSize="lg" fontFamily="Open Sans">
+        {children}
+      </Heading>
     </Stack>
   );
 };
