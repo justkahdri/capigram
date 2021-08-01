@@ -35,3 +35,15 @@ export const LIKE_ANON_PHOTO = gql`
     }
   }
 `;
+
+export const REGISTER_USER = gql`
+  mutation signup($input: UserCredentials!) {
+    signup(input: $input)
+  }
+`;
+
+export const LOGIN_USER = gql`
+  mutation login($input: UserCredentials!) {
+    login(input: $input)
+  }
+`;

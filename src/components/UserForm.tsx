@@ -1,4 +1,5 @@
-import React, { FormEventHandler, MouseEventHandler } from "react";
+import React from "react";
+import Link from "next/dist/client/link";
 import {
   Stack,
   Button,
@@ -9,23 +10,25 @@ import {
   FormLabel,
   InputProps,
   Heading,
-  Link,
+  Link as Anchor,
   Text,
 } from "@chakra-ui/react";
 
 import useInputValue from "@hooks/useInputValue";
 
 interface UserFormProps {
-  handleSubmit: FormEventHandler;
+  handleSubmit: (registerData: TRegister) => void;
   cta: string;
   bottomText: string;
   title: string;
   link: string;
-  handleRegister: MouseEventHandler<HTMLAnchorElement>;
+  loading: boolean;
+  altRoute: string;
 }
 
 const UserForm = (props: UserFormProps) => {
-  const { handleSubmit, cta, bottomText, title, link, handleRegister } = props;
+  const { handleSubmit, cta, bottomText, title, link, altRoute, loading } =
+    props;
   const email = useInputValue("");
   const password = useInputValue("");
 
@@ -37,41 +40,43 @@ const UserForm = (props: UserFormProps) => {
         as="form"
         onSubmit={(e) => {
           e.preventDefault();
-          handleSubmit(e);
+          handleSubmit({ email: email.value, password: password.value });
         }}
       >
-        <FormControl id="email" isRequired>
+        <FormControl id="email" isRequired isDisabled={loading}>
           <FormLabel>E-mail</FormLabel>
           <Input type="email" placeholder="Enter email" {...email} />
         </FormControl>
-        <PasswordInput {...password} />
-        <Button type="submit" colorScheme="pink">
+        <PasswordInput {...password} isDisabled={loading} />
+        <Button type="submit" colorScheme="pink" isLoading={loading}>
           {cta}
         </Button>
       </Stack>
       <Stack direction="row" spacing={3}>
         <Text as="em">{bottomText}</Text>
-        <Link color="pink.500" onClick={handleRegister}>
-          {link}
+        <Link href={altRoute}>
+          <Anchor color="pink.500">{link}</Anchor>
         </Link>
       </Stack>
     </Stack>
   );
 };
 
+// TODO Refactor, divide in more components
 function PasswordInput(props: InputProps) {
+  const { isDisabled, ...rest } = props;
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
 
   return (
-    <FormControl id="password" isRequired>
+    <FormControl id="password" isRequired isDisabled={isDisabled}>
       <FormLabel>Password</FormLabel>
       <InputGroup size="md">
         <Input
           pr="4.5rem"
           type={show ? "text" : "password"}
           placeholder="Enter password"
-          {...props}
+          {...rest}
         />
         <InputRightElement width="4.5rem">
           <Button h="1.75rem" size="sm" onClick={handleClick}>

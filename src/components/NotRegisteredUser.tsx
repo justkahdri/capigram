@@ -1,34 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
+import { Heading, Stack, Button } from "@chakra-ui/react";
+import Link from "next/link";
 
-import { useAppContext } from "@utils/Context";
 import Layout from "./Layout";
-import UserForm from "./UserForm";
 
 const NotRegisteredUser = () => {
-  const { activateAuth } = useAppContext();
-  const [registered, setRegistered] = useState(true);
-
-  const content = registered
-    ? {
-        title: "Sign in to enjoy all features!",
-        cta: "Login",
-        bottomText: "Not registered?",
-        link: "Create an account",
-      }
-    : {
-        title: "Create an account",
-        cta: "Register",
-        bottomText: "Already registered?",
-        link: "Sign in",
-      };
-
   return (
     <Layout>
-      <UserForm
-        handleSubmit={activateAuth}
-        {...content}
-        handleRegister={() => setRegistered((prev) => !prev)}
-      />
+      <Stack
+        flex={1}
+        alignItems="center"
+        justifyContent="center"
+        spacing="3rem"
+      >
+        <Heading as="h2" fontFamily="Open Sans" textAlign="center">
+          Can't access this page without loggin in
+        </Heading>
+        <Stack direction="row">
+          <Link href="/login">
+            <Button as="a" size="lg" colorScheme="pink" variant="outline">
+              Log In
+            </Button>
+          </Link>
+          <Link href="/register">
+            <Button as="a" size="lg" colorScheme="pink">
+              Register
+            </Button>
+          </Link>
+        </Stack>
+      </Stack>
     </Layout>
   );
 };

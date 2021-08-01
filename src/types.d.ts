@@ -36,6 +36,11 @@ declare global {
     name: string;
     avatarUrl: string;
   }
+
+  interface TRegister {
+    email: string;
+    password: string;
+  }
 }
 
 export {};
