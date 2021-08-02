@@ -23,7 +23,7 @@ const RegisterPage = () => {
   const registerNewUser = ({ email, password }: TRegister) => {
     const variables = { input: { email, password } };
     registerMutation({ variables })
-      .then(activateAuth)
+      .then(({ data }) => activateAuth(data.signup))
       .catch((err) => triggerError({ description: err.message }));
     // error && triggerError({ description: error.message });
   };

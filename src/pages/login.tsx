@@ -21,7 +21,7 @@ const LoginPage = () => {
   const [mutation, { loading }] = useMutation(LOGIN_USER);
   const loginUser = ({ email, password }: TRegister) => {
     mutation({ variables: { input: { email, password } } })
-      .then(activateAuth)
+      .then(({ data }) => activateAuth(data.login))
       .catch((err) => triggerError({ description: err.message }));
     // error && triggerError({ description: error.message });
   };

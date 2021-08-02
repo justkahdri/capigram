@@ -8,11 +8,17 @@ export const AppContext = createContext<ContextProps>({
 });
 
 export const ContextProvider: FC = ({ children }) => {
-  const [isAuth, setIsAuth] = useState(false);
-  const initialState = {
+  const [isAuth, setIsAuth] = useState(() => {
+    if (typeof window !== "undefined") {
+      const token = window.sessionStorage.getItem("user_token");
+      return !!token;
+    } else return false;
+  });
+  const initialState: ContextProps = {
     isAuth,
-    activateAuth: () => {
+    activateAuth: (token) => {
       setIsAuth(true);
+      window.sessionStorage.setItem("user_token", token);
     },
   };
 
