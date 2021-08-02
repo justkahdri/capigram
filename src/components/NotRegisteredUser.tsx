@@ -8,7 +8,7 @@ const NotRegisteredUser = () => {
   return (
     <Layout alignItems="center" justifyContent="center" spacing="3rem">
       <Heading as="h2" fontFamily="Open Sans" textAlign="center">
-        Can't access this page without loggin in
+        Can&apos;t access this page without loggin in
       </Heading>
       <Stack direction="row">
         <Link href="/login">

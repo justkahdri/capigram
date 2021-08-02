@@ -7,19 +7,12 @@ import ListOfPosts from "@containers/ListOfPosts";
 
 const CategoryPage = () => {
   const router = useRouter();
-  const categoryId = router.query.categoryId as any;
+  const categoryId = router.query.categoryId as string;
 
-  enum Animals {
-    "cats" = 1,
-    "dogs",
-    "hamsters",
-    "rabbits",
-    "birds",
-    "fishes",
-  } // Not the perfect solution... but it works
+  const Animals = ["cats", "dogs", "hamsters", "rabbits", "birds", "fishes"]; // Not the perfect solution... but it works
 
   useEffect(() => {
-    if (Number(Animals[categoryId]) === NaN) {
+    if (isNaN(Animals.indexOf(categoryId) + 1)) {
       router.push("/");
     }
   }, [categoryId]);
@@ -27,7 +20,7 @@ const CategoryPage = () => {
   return (
     <Layout>
       <ListOfCategories />
-      <ListOfPosts categoryId={Number(Animals[categoryId])} />
+      <ListOfPosts categoryId={Animals.indexOf(categoryId) + 1} />
     </Layout>
   );
 };

@@ -6,3 +6,4 @@ build
 dist
 database
 yarn-error.log
+.vercel

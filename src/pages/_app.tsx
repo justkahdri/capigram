@@ -1,6 +1,7 @@
 import "@fontsource/satisfy/400.css";
 import "@fontsource/open-sans";
 
+import React from "react";
 import type { AppProps } from "next/app";
 import { ApolloProvider } from "@apollo/client";
 import { ChakraProvider } from "@chakra-ui/react";

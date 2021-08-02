@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Heading, Flex } from "@chakra-ui/react";
-import Link from "next/link";
 
 const Header: React.FC = ({ children }) => {
   const [border, setBorder] = useState("");
