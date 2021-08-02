@@ -12,18 +12,19 @@ declare global {
     id: number;
     likes?: number;
     src: string;
+    liked: true;
   }
 
   interface FavButtonProps {
     photoId: number;
-    photoKey: string;
     likes: number;
+    liked: true;
   }
 
   // CONTEXT
   interface ContextProps {
     isAuth: boolean;
-    activateAuth: () => void;
+    activateAuth: (token: string) => void;
   }
 
   // USE CASES

@@ -26,9 +26,9 @@ export const getSinglePhoto = gql`
   }
 `;
 
-export const LIKE_ANON_PHOTO = gql`
-  mutation likeAnonymousPhoto($input: LikePhoto!) {
-    likeAnonymousPhoto(input: $input) {
+export const LIKE_PHOTO = gql`
+  mutation likePhoto($input: LikePhoto!) {
+    likePhoto(input: $input) {
       id
       liked
       likes

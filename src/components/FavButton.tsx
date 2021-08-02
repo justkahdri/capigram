@@ -1,20 +1,26 @@
 import React from "react";
-import { Stack, Text, Icon } from "@chakra-ui/react";
+import { Stack, Text, Icon, useToast } from "@chakra-ui/react";
 import { useMutation } from "@apollo/client";
 
-import { LIKE_ANON_PHOTO } from "src/utils/queries";
-import useLocalStorage from "@hooks/useLocalStorage";
+import { LIKE_PHOTO } from "src/utils/queries";
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
-const FavButton = ({ likes, photoId, photoKey }: FavButtonProps) => {
-  const [mutateFunction, { loading, error }] = useMutation(LIKE_ANON_PHOTO);
-  // TODO Use error to disable component and trigger a toast
+const FavButton = ({ likes, liked, photoId }: FavButtonProps) => {
+  const [likeMutation, { loading }] = useMutation(LIKE_PHOTO);
 
-  const [liked, setLiked] = useLocalStorage(photoKey, false);
+  // TODO Use error to disable component and trigger a toast
+  const triggerError = useToast({
+    title: "Sorry! Couldn't apply your like.",
+    status: "error",
+    isClosable: true,
+    duration: 7000,
+  });
+
   const handleFavClick = () => {
-    !liked && mutateFunction({ variables: { input: { id: photoId } } });
-    setLiked(!liked);
+    likeMutation({ variables: { input: { id: photoId } } }).catch((err) =>
+      triggerError({ description: err.message })
+    );
   };
 
   return (
