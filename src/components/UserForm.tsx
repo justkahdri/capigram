@@ -33,7 +33,7 @@ const UserForm = (props: UserFormProps) => {
   const password = useInputValue("");
 
   return (
-    <Stack alignItems="center" flex={1} spacing={6} py={8}>
+    <Stack alignItems="center" spacing={6} py={8}>
       <Heading as="h2">{title}</Heading>
       <Stack
         spacing={6}

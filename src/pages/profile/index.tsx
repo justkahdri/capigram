@@ -13,7 +13,7 @@ const Profile = () => {
   if (!isAuth) return <NotRegisteredUser />;
 
   return (
-    <Stack as="main" role="main" minHeight="100vh">
+    <Stack minHeight="100vh">
       <BackTitle>Profile</BackTitle>
       <NavBar
         bottom={0}

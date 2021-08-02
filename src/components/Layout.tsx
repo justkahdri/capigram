@@ -1,9 +1,9 @@
-import { Stack, useBreakpointValue } from "@chakra-ui/react";
-import React from "react";
+import { Stack, StackProps, useBreakpointValue } from "@chakra-ui/react";
+import React, { FC } from "react";
 import Header from "./Header";
 import NavBar from "./NavBar";
 
-const Layout: React.FC = ({ children }) => {
+const Layout: FC<StackProps> = ({ children, ...rest }) => {
   const variant = useBreakpointValue({
     base: "mobile",
     md: "inline",
@@ -11,18 +11,22 @@ const Layout: React.FC = ({ children }) => {
 
   if (variant === "inline")
     return (
-      <Stack as="main" alignItems="center" spacing={3} minH="100vh">
+      <Stack alignItems="center" spacing={3} minH="100vh">
         <Header>
           <NavBar width="20%" justifyContent="space-between" />
         </Header>
-        {children}
+        <Stack as="main" role="main" flex={1} width="100%" {...rest}>
+          {children}
+        </Stack>
       </Stack>
     );
   else
     return (
-      <Stack as="main" alignItems="center" spacing={3} minH="100vh">
+      <Stack alignItems="center" spacing={3} minH="100vh">
         <Header />
-        {children}
+        <Stack as="main" role="main" flex={1} width="100%" {...rest}>
+          {children}
+        </Stack>
         <NavBar
           bottom={0}
           position="sticky"

@@ -6,28 +6,21 @@ import Layout from "./Layout";
 
 const NotRegisteredUser = () => {
   return (
-    <Layout>
-      <Stack
-        flex={1}
-        alignItems="center"
-        justifyContent="center"
-        spacing="3rem"
-      >
-        <Heading as="h2" fontFamily="Open Sans" textAlign="center">
-          Can't access this page without loggin in
-        </Heading>
-        <Stack direction="row">
-          <Link href="/login">
-            <Button as="a" size="lg" colorScheme="pink" variant="outline">
-              Log In
-            </Button>
-          </Link>
-          <Link href="/register">
-            <Button as="a" size="lg" colorScheme="pink">
-              Register
-            </Button>
-          </Link>
-        </Stack>
+    <Layout alignItems="center" justifyContent="center" spacing="3rem">
+      <Heading as="h2" fontFamily="Open Sans" textAlign="center">
+        Can't access this page without loggin in
+      </Heading>
+      <Stack direction="row">
+        <Link href="/login">
+          <Button as="a" size="lg" colorScheme="pink" variant="outline">
+            Log In
+          </Button>
+        </Link>
+        <Link href="/register">
+          <Button as="a" size="lg" colorScheme="pink">
+            Register
+          </Button>
+        </Link>
       </Stack>
     </Layout>
   );

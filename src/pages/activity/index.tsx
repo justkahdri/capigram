@@ -13,7 +13,7 @@ const Favourites = () => {
   if (!isAuth) return <NotRegisteredUser />;
 
   return (
-    <Stack as="main" role="main" minHeight="100vh">
+    <Stack minHeight="100vh">
       <BackTitle>Activity</BackTitle>
       <NavBar
         bottom={0}
