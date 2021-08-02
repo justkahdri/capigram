@@ -1,28 +1,23 @@
-import { Stack } from "@chakra-ui/react";
 import React from "react";
+import { Button, Text } from "@chakra-ui/react";
 
-import BackTitle from "@components/BackTitle";
 import NotRegisteredUser from "@components/NotRegisteredUser";
-import NavBar from "@components/NavBar";
 
 import { useAppContext } from "@utils/Context";
+import SectionLayout from "@components/SectionLayout";
 
 const Profile = () => {
-  const { isAuth } = useAppContext();
+  const { isAuth, removeAuth } = useAppContext();
 
   if (!isAuth) return <NotRegisteredUser />;
 
   return (
-    <Stack minHeight="100vh">
-      <BackTitle>Profile</BackTitle>
-      <NavBar
-        bottom={0}
-        position="sticky"
-        borderTop="solid 1px rgba(0,0,0,0.1)"
-        width="100%"
-        justifyContent="space-evenly"
-      />
-    </Stack>
+    <SectionLayout title="Profile">
+      <Text>You are logged on Capigram.</Text>
+      <Button colorScheme="pink" variant="ghost" onClick={removeAuth}>
+        Log out
+      </Button>
+    </SectionLayout>
   );
 };
 

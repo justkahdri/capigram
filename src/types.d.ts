@@ -25,6 +25,7 @@ declare global {
   interface ContextProps {
     isAuth: boolean;
     activateAuth: (token: string) => void;
+    removeAuth: () => void;
   }
 
   // USE CASES
