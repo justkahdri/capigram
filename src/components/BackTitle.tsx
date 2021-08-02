@@ -13,6 +13,7 @@ const BackTitle: FC = ({ children }) => {
       borderBottom="solid 1px rgba(0,0,0,0.1)"
       alignItems="center"
       spacing={5}
+      width="100%"
     >
       <Link href="/">
         <a>

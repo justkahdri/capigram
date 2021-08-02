@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 
+// QUERIES
 export const getPhotos = gql`
   query getPhotos($categoryId: ID) {
     photos(categoryId: $categoryId) {
@@ -26,6 +27,19 @@ export const getSinglePhoto = gql`
   }
 `;
 
+export const GET_FAVORITES = gql`
+  query getFavs {
+    favs {
+      id
+      categoryId
+      src
+      likes
+      userId
+    }
+  }
+`;
+
+// MUTATIONS
 export const LIKE_PHOTO = gql`
   mutation likePhoto($input: LikePhoto!) {
     likePhoto(input: $input) {

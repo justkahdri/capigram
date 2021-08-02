@@ -21,7 +21,7 @@ const ListOfPosts = ({ categoryId }: ListOfPhotosVars) => {
 
   if (error) {
     return <Heading>An error ocurred... 🤯</Heading>;
-  }
+  } // TODO Handle error
 
   return (
     <Stack
