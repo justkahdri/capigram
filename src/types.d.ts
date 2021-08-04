@@ -8,11 +8,8 @@ declare global {
     size: string;
   }
 
-  interface PostProps {
-    id: number;
-    likes?: number;
-    src: string;
-    liked: true;
+  interface PostProps extends TPost {
+    isDetail?: boolean;
   }
 
   interface FavButtonProps {
@@ -33,10 +30,18 @@ declare global {
     id: number;
   }
 
+  interface TPost {
+    id: number;
+    likes?: number;
+    src: string;
+    liked: true;
+    categoryId: number;
+  }
+
   interface TUser {
+    id: number;
+    codename: string;
     nickname: string;
-    name: string;
-    avatarUrl: string;
   }
 
   interface TRegister {

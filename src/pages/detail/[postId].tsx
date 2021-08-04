@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { Stack, Text } from "@chakra-ui/react";
+import { Stack, StackDivider, Text } from "@chakra-ui/react";
 
 import DetailPost from "@containers/DetailPost";
 import BackTitle from "@components/BackTitle";

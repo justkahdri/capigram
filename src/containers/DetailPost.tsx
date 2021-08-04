@@ -7,7 +7,7 @@ import Post from "@components/Post";
 import { getSinglePhoto } from "src/utils/queries";
 
 interface DetailPostData {
-  photo: PostProps;
+  photo: TPost;
 }
 
 interface DetailPostVars {
@@ -23,7 +23,7 @@ const DetailPost = ({ id }: DetailPostVars) => {
   if (error) return <Heading>An error ocurred...</Heading>;
   else if (!data || loading) return <Skeleton width="100%" height="300px" />;
 
-  return <Post {...data.photo} />;
+  return <Post {...data.photo} isDetail />;
 };
 
 export default DetailPost;

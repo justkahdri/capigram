@@ -10,14 +10,13 @@ import {
   Link as Anchor,
   Stack,
   Box,
-  Flex,
 } from "@chakra-ui/react";
 
 import { GET_FAVORITES } from "@utils/queries";
 import Link from "next/link";
 
 interface ListOfFavsData {
-  favs: PostProps[];
+  favs: TPost[];
 }
 
 const ListOfFavs = () => {

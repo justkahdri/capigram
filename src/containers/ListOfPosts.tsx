@@ -6,7 +6,7 @@ import Post from "@components/Post";
 import { getPhotos } from "../utils/queries";
 
 interface ListOfPhotosData {
-  photos: PostProps[];
+  photos: TPost[];
 }
 
 interface ListOfPhotosVars {

@@ -1,26 +1,34 @@
-import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import { useRouter } from "next/router";
+import { Heading } from "@chakra-ui/react";
 
 import Layout from "@components/Layout";
 import ListOfCategories from "@containers/ListOfCategories";
 import ListOfPosts from "@containers/ListOfPosts";
 
+import usersByCategory from "@utils/usersByCategory";
+
 const CategoryPage = () => {
   const router = useRouter();
-  const categoryId = router.query.categoryId as string;
+  const categoryName = router.query.categoryId as string;
 
-  const Animals = ["cats", "dogs", "hamsters", "rabbits", "birds", "fishes"]; // Not the perfect solution... but it works
+  const { id } = usersByCategory.find(
+    (user) => user.codename === categoryName
+  ) || { id: undefined };
 
   useEffect(() => {
-    if (isNaN(Animals.indexOf(categoryId) + 1)) {
+    if (typeof id === "undefined") {
       router.push("/");
     }
-  }, [categoryId]);
+  }, [id]);
+
+  if (!id)
+    return <Heading fontFamily="Open Sans">Redirecting to home...</Heading>;
 
   return (
     <Layout>
       <ListOfCategories />
-      <ListOfPosts categoryId={Animals.indexOf(categoryId) + 1} />
+      <ListOfPosts categoryId={id} />
     </Layout>
   );
 };
